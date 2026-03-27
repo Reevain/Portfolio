@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FiFileText } from 'react-icons/fi';
 import './Hero.css';
 

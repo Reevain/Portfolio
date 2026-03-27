@@ -35,10 +35,18 @@ const Navbar = () => {
 
         <div className={`navbar-right ${isMenuOpen ? 'active' : ''}`}>
           <ul className="navbar-links">
-            <li><a onClick={() => scrollToSection('skills')}>Skills</a></li>
-            <li><a onClick={() => scrollToSection('projects')}>Projects</a></li>
-            <li><a onClick={() => scrollToSection('education')}>Education</a></li>
-            <li><a onClick={() => scrollToSection('contact')}>Contact</a></li>
+            <li>
+              <a href="#skills" onClick={() => scrollToSection('skills')}>Skills</a>
+            </li>
+            <li>
+              <a href="#projects" onClick={() => scrollToSection('projects')}>Projects</a>
+            </li>
+            <li>
+              <a href="#education" onClick={() => scrollToSection('education')}>Education</a>
+            </li>
+            <li>
+              <a href="#contact" onClick={() => scrollToSection('contact')}>Contact</a>
+            </li>
           </ul>
 
           <button className="navbar-contact-btn">
