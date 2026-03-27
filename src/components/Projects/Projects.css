@@ -1,0 +1,250 @@
+.projects {
+  padding: 100px 0;
+  position: relative;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.projects-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.projects-icon svg {
+  animation: rotate 15s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.projects-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.carousel-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.carousel-btn {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+  border-color: transparent;
+  transform: scale(1.1);
+}
+
+.carousel-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-card {
+  background: linear-gradient(135deg, rgba(224, 64, 251, 0.05), rgba(124, 77, 255, 0.05));
+  border: 1.5px solid var(--border);
+  border-radius: 1.5rem;
+  padding: 3rem;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+.project-image {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 1rem;
+  padding: 3rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.project-emoji {
+  font-size: 5rem;
+  display: block;
+}
+
+.project-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  border-color: var(--accent-pink);
+}
+
+.dot.active {
+  background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+  border-color: transparent;
+}
+
+@media (max-width: 1024px) {
+  .projects {
+    padding: 80px 0;
+  }
+
+  .projects-title {
+    font-size: 2rem;
+  }
+
+  .project-card {
+    padding: 2rem;
+  }
+
+  .project-image {
+    padding: 2rem;
+    min-height: 250px;
+  }
+
+  .project-emoji {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 60px 0;
+  }
+
+  .projects-icon svg {
+    width: 50px;
+    height: 50px;
+  }
+
+  .projects-title {
+    font-size: 1.75rem;
+  }
+
+  .carousel-container {
+    gap: 1.5rem;
+  }
+
+  .carousel-btn {
+    width: 45px;
+    height: 45px;
+  }
+
+  .carousel-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+  }
+
+  .project-image {
+    padding: 1.5rem;
+    min-height: 200px;
+  }
+
+  .project-emoji {
+    font-size: 3rem;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects {
+    padding: 40px 0;
+  }
+
+  .projects-icon svg {
+    width: 45px;
+    height: 45px;
+  }
+
+  .projects-title {
+    font-size: 1.5rem;
+  }
+
+  .carousel-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+  }
+
+  .carousel-btn:first-child,
+  .carousel-btn:last-child {
+    display: none;
+  }
+
+  .project-card {
+    padding: 1rem;
+  }
+
+  .project-image {
+    padding: 1rem;
+    min-height: 150px;
+  }
+
+  .project-emoji {
+    font-size: 2.5rem;
+  }
+
+  .project-title {
+    font-size: 1rem;
+  }
+}

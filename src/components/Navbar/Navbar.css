@@ -1,0 +1,223 @@
+/* ==================== NAVBAR STYLES ==================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(224, 64, 251, 0.2);
+  z-index: 1000;
+  padding: 20px 0;
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ==================== NAVBAR LEFT (LOGO) ==================== */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  cursor: pointer;
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.logo-subtitle {
+  font-size: 12px;
+  background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+/* ==================== NAVBAR RIGHT (LINKS + BUTTON) ==================== */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.navbar-links a:hover {
+  color: var(--accent-pink);
+}
+
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+  transition: width 0.3s ease;
+}
+
+.navbar-links a:hover::after {
+  width: 100%;
+}
+
+/* ==================== CONTACT BUTTON ==================== */
+.navbar-contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 2px solid;
+  border-image: linear-gradient(135deg, var(--accent-pink), var(--accent-purple)) 1;
+  background: transparent;
+  color: var(--text);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar-contact-btn:hover {
+  background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+  box-shadow: 0 0 20px rgba(224, 64, 251, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ==================== MOBILE MENU TOGGLE ==================== */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.navbar-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1200px) {
+  .navbar-container {
+    padding: 0 60px;
+  }
+
+  .navbar-right {
+    gap: 30px;
+  }
+
+  .navbar-links {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 30px;
+  }
+
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-right {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-color: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    gap: 0;
+    padding: 30px;
+    border-top: 1px solid rgba(224, 64, 251, 0.2);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+  }
+
+  .navbar-right.active {
+    transform: translateX(0);
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .navbar-contact-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .navbar-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+  }
+
+  .navbar-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 20px;
+  }
+
+  .logo-text {
+    font-size: 16px;
+  }
+
+  .navbar-links a {
+    font-size: 16px;
+  }
+
+  .navbar-contact-btn {
+    font-size: 14px;
+    padding: 12px 20px;
+  }
+}
