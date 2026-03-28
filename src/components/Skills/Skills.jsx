@@ -2,51 +2,33 @@ import React, { useState } from 'react';
 import './Skills.css';
 
 const Skills = () => {
-  const [activeFilter, setActiveFilter] = useState('Frontend');
+  const [activeFilter, setActiveFilter] = useState('Languages');
 
   const skillsData = {
-    Frontend: ['React.js', 'Next.js 13', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS3', 'Sass'],
-    Backend: ['Node.js', 'Express.js', 'MongoDB', 'PostgreSQL', 'Prisma', 'REST APIs'],
-    DevOps: ['Docker', 'Git & GitHub', 'CI/CD', 'Linux CLI', 'AWS', 'Vercel'],
-    Databases: ['MongoDB', 'PostgreSQL', 'Firebase', 'SQLite', 'Firestore', 'MySQL'],
-    Cloud: ['AWS', 'GCP', 'Microsoft Azure', 'Vercel', 'Firebase'],
-    Other: ['C++/C', 'Microservices', 'GraphQL', 'ESLint', 'React Native']
+    Languages: ['C++', 'Python', 'C', 'JAVA'],
+    Frameworks: ['HTML', 'Tailwind CSS', 'Node.js'],
+    'Tools/Platforms': ['MongoDB', 'MS SQL Server'],
+    'Soft Skills': ['Problem-Solving', 'Adaptability', 'Time-Management']
   };
 
   const workStack = [
-    { name: 'TypeScript', icon: '🔵' },
-    { name: 'JavaScript', icon: '🟨' },
-    { name: 'Next.js 13', icon: '⬛' },
-    { name: 'Next.js 12', icon: '⬛' },
-    { name: 'React.js', icon: '🔵' },
-    { name: 'Node.js', icon: '🟢' },
+    { name: 'C++', icon: '⚙️' },
+    { name: 'Python', icon: '🐍' },
+    { name: 'C', icon: '⚡' },
+    { name: 'JAVA', icon: '☕' },
     { name: 'HTML', icon: '🟠' },
-    { name: 'React Native', icon: '🔵' },
     { name: 'Tailwind CSS', icon: '🔷' },
-    { name: 'CSS', icon: '🔷' },
-    { name: 'Sass', icon: '🌺' },
-    { name: 'Docker', icon: '🐋' },
-    { name: 'Git & GitHub', icon: '🐙' },
-    { name: 'Prisma', icon: '🔳' },
-    { name: 'Express.js', icon: '🟢' },
-    { name: 'Mongoose', icon: '🍃' },
-    { name: 'ESLint', icon: '🔧' },
-    { name: 'Firebase', icon: '🔥' },
-    { name: 'Vercel', icon: '⬛' },
-    { name: 'MySQL', icon: '🐬' },
-    { name: 'PostgreSQL', icon: '🐘' },
-    { name: 'SQLite', icon: '📊' },
+    { name: 'Node.js', icon: '🟢' },
     { name: 'MongoDB', icon: '🍃' },
-    { name: 'Firestore', icon: '🔥' },
-    { name: 'AWS', icon: '🟠' },
-    { name: 'GCP', icon: '🔵' },
-    { name: 'Microsoft Azure', icon: '🔷' },
-    { name: 'C++/C', icon: '⚙️' },
-    { name: 'REST APIs', icon: '🌐' },
-    { name: 'CI/CD', icon: '⚡' },
-    { name: 'Linux CLI', icon: '🐧' },
-    { name: 'Microservices', icon: '🔗' },
+    { name: 'MS SQL Server', icon: '📊' },
+    { name: 'Problem-Solving', icon: '🧩' },
+    { name: 'Adaptability', icon: '🔄' },
+    { name: 'Time-Management', icon: '⏰' }
   ];
+
+  const isSkillInActiveCategory = (skillName) => {
+    return skillsData[activeFilter]?.includes(skillName) || false;
+  };
 
   return (
     <section className="skills" id="skills">
@@ -68,15 +50,15 @@ const Skills = () => {
 
           <div className="skills-intro">
             <div className="intro-left">
-              <h2 className="intro-heading">I build things for the people</h2>
-              <p className="intro-subheading">I can Design, Develop, Deploy</p>
+              <h2 className="intro-heading">Technical & Professional Expertise</h2>
+              <p className="intro-subheading">Languages, Frameworks & Tools</p>
             </div>
             <div className="intro-right">
               <p className="intro-text">
-                My go-to stack is <strong>Next JS (With TypeScript & SaSS)</strong>, which was previously known as the MERN Stack for web-based solutions. I have collaborated with developers to create a variety of open-source solutions.
+                I have strong proficiency in multiple programming languages including <strong>C++, Python, C, and Java</strong>, with expertise in modern web development frameworks and database management.
               </p>
               <p className="intro-text">
-                I have a thing for making unique user interfaces, so I always design the systems on Figma from scratch and code them using tailwind, giving the app a unique new look and better control and customizability.
+                My technical stack includes <strong>HTML, Tailwind CSS, and Node.js</strong> for web development, along with <strong>MongoDB and MS SQL Server</strong> for database solutions. I combine technical skills with soft skills like problem-solving, adaptability, and effective time-management.
               </p>
             </div>
           </div>
@@ -109,7 +91,10 @@ const Skills = () => {
           <div className="work-stack-label">Work Stack →</div>
           <div className="work-stack-grid">
             {workStack.map((item, index) => (
-              <div key={index} className="work-stack-item">
+              <div 
+                key={index} 
+                className={`work-stack-item ${isSkillInActiveCategory(item.name) ? 'highlighted' : ''}`}
+              >
                 <span className="stack-icon">{item.icon}</span>
                 <span className="stack-name">{item.name}</span>
               </div>

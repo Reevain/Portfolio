@@ -15,7 +15,7 @@ const Hero = () => {
           </h1>
 
           <p className="hero-description">
-            Hello, I'm Aman, a Full Stack Developer & Designer with <strong>4+</strong> years of experience
+            Hello, I'm Reevain, a Full Stack Developer & Designer with <strong>3+</strong> years of experience
           </p>
 
           <div className="hero-buttons">
@@ -32,7 +32,7 @@ const Hero = () => {
         <div className="hero-right fade-in">
           <div className="hero-bio">
             <p>
-              Hello, I'm Aman, a <strong>Full Stack Developer & Designer</strong>
+              Hello, I'm Reevain, a <strong>Full Stack Developer & Designer</strong>
             </p>
           </div>
         </div>

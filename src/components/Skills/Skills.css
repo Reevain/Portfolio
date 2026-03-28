@@ -181,6 +181,17 @@
   transform: translateY(-3px);
 }
 
+.work-stack-item.highlighted {
+  background: linear-gradient(135deg, rgba(224, 64, 251, 0.25), rgba(124, 77, 255, 0.25));
+  border-color: var(--accent-pink);
+  box-shadow: 0 0 15px rgba(224, 64, 251, 0.3);
+}
+
+.work-stack-item.highlighted:hover {
+  background: linear-gradient(135deg, rgba(224, 64, 251, 0.35), rgba(124, 77, 255, 0.35));
+  box-shadow: 0 0 25px rgba(224, 64, 251, 0.4);
+}
+
 .stack-icon {
   font-size: 1.5rem;
   line-height: 1;

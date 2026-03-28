@@ -1,27 +1,54 @@
 import React from 'react';
+import { GiSchoolBag } from 'react-icons/gi';
+import { PiGraduationCapFill, PiBooksFill } from 'react-icons/pi';
 import './Education.css';
 
 const Education = () => {
   const educationData = [
     {
-      degree: 'B.Tech Computer Science',
-      institution: 'University Name',
-      duration: '2019 — 2023',
+      degree: '10th Class',
+      institution: 'Army Public School Bolarum, Secunderabad',
+      duration: '2020 — 2021',
+      percentage: '75%',
+      icon: 'school',
       description: [
-        'Completed a comprehensive Computer Science degree with focus on full-stack development and system design.',
-        'Developed various projects including web applications, mobile apps, and open-source contributions.'
+        'Completed high school education with strong foundation in science and mathematics.'
       ]
     },
     {
-      degree: 'Advanced Web Development Bootcamp',
-      institution: 'Tech Institute',
-      duration: '2023 — 2024',
+      degree: '11th & 12th Class',
+      institution: 'CRPF Public School, Hakimpet, Hyderabad',
+      duration: '2022 — 2023',
+      percentage: '64%',
+      icon: 'books',
       description: [
-        'Intensive bootcamp covering modern JavaScript frameworks and cloud deployment.',
-        'Built production-ready applications with React, Node.js, and various cloud platforms.'
+        'Completed intermediate education with specialization in Physics, Chemistry, and Mathematics.'
+      ]
+    },
+    {
+      degree: 'B.Tech Computer Science',
+      institution: 'Lovely Professional University',
+      duration: '2023 — 2027 (Present)',
+      percentage: '6.67 CGPA',
+      icon: 'graduation',
+      description: [
+        'Currently pursuing Computer Science degree with focus on software development and modern technologies.'
       ]
     }
   ];
+
+  const renderIcon = (iconType) => {
+    switch(iconType) {
+      case 'school':
+        return <GiSchoolBag size={28} />;
+      case 'books':
+        return <PiBooksFill size={28} />;
+      case 'graduation':
+        return <PiGraduationCapFill size={28} />;
+      default:
+        return <GiSchoolBag size={28} />;
+    }
+  };
 
   return (
     <section className="education" id="education">
@@ -52,12 +79,21 @@ const Education = () => {
 
               <div className="education-content">
                 <div className="education-left">
+                  <div className="school-icon">
+                    {renderIcon(edu.icon)}
+                  </div>
                   <h3 className="edu-degree">{edu.degree}</h3>
                   <p className="edu-institution">{edu.institution}</p>
                   <div className="edu-duration">
                     <span className="duration-dot">●</span>
                     <span>{edu.duration}</span>
                   </div>
+                  {edu.percentage && (
+                    <div className="edu-percentage">
+                      <span className="percentage-dot">★</span>
+                      <span>{edu.percentage}</span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="education-right">

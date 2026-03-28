@@ -1,15 +1,12 @@
 import React from 'react';
-import { AiOutlineTwitter, AiFillGithub, AiFillLinkedin, AiOutlineInstagram } from 'react-icons/ai';
-import { SiDevdotto } from 'react-icons/si';
+import { AiFillGithub, AiFillLinkedin, AiOutlineTwitter } from 'react-icons/ai';
 import './About.css';
 
 const About = () => {
   const socialLinks = [
-    { icon: AiOutlineTwitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: AiFillGithub, href: 'https://github.com', label: 'GitHub' },
-    { icon: AiFillLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: AiOutlineInstagram, href: 'https://instagram.com', label: 'Instagram' },
-    { icon: SiDevdotto, href: 'https://dev.to', label: 'DEV.to' },
+    { icon: AiFillGithub, href: 'https://github.com/Reevain', label: 'GitHub' },
+    { icon: AiFillLinkedin, href: 'https://www.linkedin.com/in/reevain-patel/', label: 'LinkedIn' },
+    { icon: AiOutlineTwitter, href: 'https://x.com/reevain1501', label: 'Twitter' },
   ];
 
   return (
@@ -36,10 +33,10 @@ const About = () => {
 
           <div className="about-right">
             <p className="about-text">
-              Aman Kumar Jagdev is a dedicated full-stack developer with a pragmatic and detail-driven view. He applies a systematic mix of thoughtful engineering and modern UX design principles for scalable websites and mobile experiences. Aman optimizes performance, maintains code quality, and collaborates closely with product and design owners to deliver consistent business value across each release.
+              Reevain is a dedicated full-stack developer with a pragmatic and detail-driven view. He applies a systematic mix of thoughtful engineering and modern UX design principles for scalable websites and mobile experiences. Reevain optimizes performance, maintains code quality, and collaborates closely with product and design owners to deliver consistent business value across each release.
             </p>
             <p className="about-text">
-              His work is anchored by strong communication, clean architecture, and a data-backed delivery mindset. Beyond code, Aman is passionate about design, finance, and anime. He's actively looking for opportunities in Dev Relations, Development, and Design roles where he can contribute meaningfully. He also writes technical articles on development and design.
+              His work is anchored by strong communication, clean architecture, and a data-backed delivery mindset. Beyond code, Reevain is passionate about design, finance, and anime. He's actively looking for opportunities in Dev Relations, Development, and Design roles where he can contribute meaningfully. He also writes technical articles on development and design.
             </p>
 
             <div className="social-links">

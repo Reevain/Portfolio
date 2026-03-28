@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { AiOutlineTwitter, AiFillGithub, AiFillLinkedin, AiOutlineInstagram } from 'react-icons/ai';
-import { SiDevdotto } from 'react-icons/si';
+import { AiFillGithub, AiFillLinkedin, AiOutlineTwitter } from 'react-icons/ai';
 import './Contact.css';
 
 const Contact = () => {
@@ -12,12 +11,12 @@ const Contact = () => {
   
   const [messageType, setMessageType] = useState('hiring');
 
+  const email = 'patelreevain@gmail.com';
+
   const socialLinks = [
-    { icon: AiOutlineTwitter, label: 'X (Twitter)', href: 'https://twitter.com' },
-    { icon: AiFillGithub, label: 'GitHub', href: 'https://github.com' },
-    { icon: AiFillLinkedin, label: 'LinkedIn', href: 'https://linkedin.com' },
-    { icon: AiOutlineInstagram, label: 'Instagram', href: 'https://instagram.com' },
-    { icon: SiDevdotto, label: 'DEV.to', href: 'https://dev.to' },
+    { icon: AiFillGithub, label: 'GitHub', href: 'https://github.com/Reevain' },
+    { icon: AiFillLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/reevain-patel/' },
+    { icon: AiOutlineTwitter, label: 'Twitter', href: 'https://x.com/reevain1501' },
   ];
 
   const handleInputChange = (e) => {
@@ -56,7 +55,7 @@ const Contact = () => {
               <h2 className="contact-title">
                 It's time<br />to talk!<br />Contact me
               </h2>
-              <p className="contact-email">contact@amanjag.dev</p>
+              <p className="contact-email">{email}</p>
             </div>
 
             <div className="contact-social-grid">
@@ -82,7 +81,7 @@ const Contact = () => {
 
           <div className="contact-right fade-in" style={{ animationDelay: '0.2s' }}>
             <p className="contact-intro">
-              Best way to reach out is <a href="mailto:contact@amanjag.dev">contact@amanjag.dev</a> or just simply fill out the form below. Don't be shy, I love to talk to new people and make new connections
+              Best way to reach out is <a href={`mailto:${email}`}>{email}</a> or just simply fill out the form below. Don't be shy, I love to talk to new people and make new connections
             </p>
 
             <form className="contact-form" onSubmit={handleSubmit}>

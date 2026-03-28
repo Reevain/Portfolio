@@ -6,14 +6,40 @@ const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const projects = [
-    { id: 1, title: 'Buzz — GEU Campus App', image: '📱' },
-    { id: 2, title: 'Project 2', image: '🎨' },
-    { id: 3, title: 'Project 3', image: '🚀' },
-    { id: 4, title: 'Project 4', image: '💡' },
-    { id: 5, title: 'Project 5', image: '🌟' },
-    { id: 6, title: 'Project 6', image: '⚡' },
-    { id: 7, title: 'Project 7', image: '🔥' },
-    { id: 8, title: 'Project 8', image: '✨' },
+    {
+      id: 1,
+      title: 'SinnerLifestyle E-Commerce Platform',
+      tagline: 'Full-Stack E-Commerce Solutions',
+      duration: 'Apr\'25 - May\'25',
+      image: '🛍️',
+      description: 'Architected a full-stack e-commerce platform (PHP, MySQL, HTML, CSS, JavaScript) with product catalog, authentication, cart, and order management, improving navigation efficiency by 40%. Optimized backend search, filtering, and dynamic pricing modules, reducing page load time by 35% and increasing user engagement by 50%. Boosted first-month revenue by ₹7000 by enhancing checkout flow, product placement, and delivering a mobile-responsive UI with 90% user satisfaction.',
+      stats: [
+        '40% Navigation Improvement',
+        '50% User Engagement Increase',
+        '₹7000 First Month Revenue'
+      ],
+      links: [
+        { label: 'Live', icon: '🔗' },
+        { label: 'Code', icon: '💻' }
+      ]
+    },
+    {
+      id: 2,
+      title: 'Get Movies - Ticket Booking System',
+      tagline: 'Movie Ticket Booking Platform',
+      duration: 'Mar\'24 - Apr\'24',
+      image: '🎬',
+      description: 'Designed a movie ticket booking system with real-time seat availability, user authentication, and instant booking confirmation, improving booking efficiency by 45%. Integrated dynamic seat mapping, showtime scheduling, and automated booking validation using PHP/MySQL, reducing booking errors by 35%. Enhanced system reliability by implementing secure data handling and optimizing database queries, cutting server response time by 30% and reducing manual management efforts by 60%.',
+      stats: [
+        '45% Booking Efficiency',
+        '35% Error Reduction',
+        '30% Response Time Cut'
+      ],
+      links: [
+        { label: 'Live', icon: '🔗' },
+        { label: 'Code', icon: '💻' }
+      ]
+    }
   ];
 
   const handlePrev = () => {
@@ -23,6 +49,8 @@ const Projects = () => {
   const handleNext = () => {
     setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
   };
+
+  const currentProject = projects[currentIndex];
 
   return (
     <section className="projects" id="projects">
@@ -42,34 +70,77 @@ const Projects = () => {
           <h2 className="projects-title">Projects</h2>
         </div>
 
-        <div className="carousel-container fade-in" style={{ animationDelay: '0.2s' }}>
-          <button className="carousel-btn carousel-prev" onClick={handlePrev}>
-            <FiChevronLeft size={24} />
-          </button>
+        {/* Carousel Section */}
+        <div className="carousel-wrapper fade-in" style={{ animationDelay: '0.2s' }}>
+          <div className="carousel-container">
+            <button className="carousel-btn carousel-prev" onClick={handlePrev} aria-label="Previous project">
+              <FiChevronLeft size={28} />
+            </button>
 
-          <div className="carousel-slide">
-            <div className="project-card">
-              <div className="project-image">
-                <span className="project-emoji">{projects[currentIndex].image}</span>
+            <div className="carousel-main">
+              <div className="project-showcase">
+                <div className="showcase-grid">
+                  <div className="showcase-card main-card">
+                    <div className="project-image-large">
+                      <span className="emoji-large">{currentProject.image}</span>
+                    </div>
+                  </div>
+                  <div className="showcase-card">
+                    <div className="project-image">
+                      <span className="emoji">{currentProject.image}</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 className="project-title">{projects[currentIndex].title}</h3>
+            </div>
+
+            <button className="carousel-btn carousel-next" onClick={handleNext} aria-label="Next project">
+              <FiChevronRight size={28} />
+            </button>
+          </div>
+
+          {/* Thumbnail Navigation */}
+          <div className="carousel-thumbnails">
+            {projects.map((project, index) => (
+              <button
+                key={project.id}
+                className={`thumbnail ${index === currentIndex ? 'active' : ''}`}
+                onClick={() => setCurrentIndex(index)}
+                aria-label={`Project ${index + 1}`}
+              >
+                <span className="thumbnail-emoji">{project.image}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Project Details Section */}
+        <div className="project-details fade-in" style={{ animationDelay: '0.3s' }}>
+          <div className="details-header">
+            <div className="details-title-section">
+              <h3 className="project-detail-title">{currentProject.title}</h3>
+              <span className="project-duration-badge">{currentProject.duration}</span>
+            </div>
+            <div className="project-links">
+              {currentProject.links.map((link, idx) => (
+                <button key={idx} className="project-link-btn">
+                  <span className="link-emoji">{link.icon}</span>
+                  {link.label}
+                </button>
+              ))}
             </div>
           </div>
 
-          <button className="carousel-btn carousel-next" onClick={handleNext}>
-            <FiChevronRight size={24} />
-          </button>
-        </div>
+          <div className="project-stats">
+            {currentProject.stats.map((stat, idx) => (
+              <div key={idx} className="stat-item">
+                <span className="stat-dot">★</span>
+                {stat}
+              </div>
+            ))}
+          </div>
 
-        <div className="carousel-dots fade-in" style={{ animationDelay: '0.3s' }}>
-          {projects.map((project, index) => (
-            <button
-              key={index}
-              className={`dot ${index === currentIndex ? 'active' : ''}`}
-              onClick={() => setCurrentIndex(index)}
-              aria-label={`Go to project ${index + 1}`}
-            />
-          ))}
+          <p className="project-full-description">{currentProject.description}</p>
         </div>
       </div>
     </section>
